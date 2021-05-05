@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>이미지 슬라이더</title>
+    <script src="jquery-3.1.0.js"></script>
+    <script>
+        $(document).ready(function () {
+            var box_isclick = false;
+            var box_inipos = 0;
+            var box_moving = 0;
+            var box_origin = 0;
+            var myWidth = 0;
+            var init = true;
+            var iniX;
+
+            //$('#box').css('margin-left','0px').css('border-left','0px').css('padding-left','0px');
+            $('#box').on({//이벤트 등록
+                "touchstart mousedown": function(e) { //마우스
+                    e.preventDefault();
+                    box_isclick = true; //클릭했다
+                    box_origin = $(this).offset().left; //현재 이미지의 좌표값
+                    box_moving = 0; //누르는 순간 이동
+                    if(init) { init = false; iniX = $(this).offset().left; } //초기위치 등록
+                    myWidth = this.getBoundingClientRect().width; 
+                },
+                "touchstart": function(e) { //터치시
+                    box_inipos = e.originalEvent.touches[0].screenX; //손가락으로 터치시 좌표값
+                },
+                "mousedown": function(e) {
+                    box_inipos = e.pageX; //컴퓨터에서 마우스 좌표 파악
+                },
+                "touchmove": function(e) { //손가락 터치시
+                    e.preventDefault();
+                    if(box_isclick) { //box 누른 상태면
+                        box_moving = e.originalEvent.touches[0].screenX - box_inipos; //(손가락의 현재위치-초기위치)
+                        $(this).css('transform','translateX('+(box_origin+box_moving)+'px)'); //이동
+                    }
+                },
+                "mousemove": function(e) { 
+                    if(box_isclick) { 
+                        box_moving = e.pageX - box_inipos;
+                        $(this).css('transform','translateX('+(box_origin+box_moving)+'px)');
+                    }
+                },
+                "touchend mouseup": function(e) { //손가락 뗴었다.
+                    box_isclick = false;
+                    if($(this).offset().left < 0) //이미지의 제일 끝부분이 0보다 작다 0보다 더 감
+                        $(this).css('transform','translateX(0px)');
+                    else {
+                         let t = (box_origin+box_moving-iniX) / myWidth; //반올림
+                         t = myWidth * ((box_moving > 0) ? Math.ceil(t) : Math.floor(t)); //소수점 안됨 한칸 단위로 이동
+                         $(this).css('transform','translateX('+(t)+'px)');
+                    }
+                }
+            })
+       });
+    </script>
+</head>
+
+<body>
+
+    <div id="box" style="width:200px; height:200px; background:green; position:absolute;">
+    </div>
+
+</body>
+</html>
