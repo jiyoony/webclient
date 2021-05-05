@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Event</title>
+    <!-- <script src="jquery-3.1.0.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script>
+        // 웹 페이지를 모두 불러오면
+        $(document).ready(function () {
+            // 0부터 255까지 반복문을 돌리고
+            for (var i = 0; i < 256; i++) {
+                // div 태그에 스타일을 적용해 body 태그에 추가합니다.
+                $('<div></div>').css({
+                    height: 2,
+                    background: 'rgb(' + i + ',' + i + ',' + i + ')'
+                }).appendTo('body');
+            }
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

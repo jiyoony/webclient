@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <script>
+    window.onload = function () {
+      for (let i=0; i<256;i++){
+        const $div = document.createElement('div');
+        $div.setAttribute('style',`height : 2px; background-color : rgb(`+ i + ',' + i + ',' + i + `);`);
+        document.body.appendChild($div);  
+      }
+
+    }
+     
+  </script>
+</body>
+</html>
