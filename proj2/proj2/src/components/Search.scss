@@ -1,0 +1,109 @@
+body {
+  background-color: #efefef;
+  // height: 600px;
+}
+.container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #efefef
+
+}
+
+
+.loader {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 300;
+}
+.imgg{
+  display:flex;
+  white-space: pre;
+
+}
+
+.boards {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 50px;
+  padding-top: 70px;
+  width: 85%;
+}
+
+.input_div {
+    display: flex;
+    background: #495057;
+    margin-bottom: 1rem;
+    input {
+      // 기본 스타일 초기화
+      background: none;
+      outline: none;
+      border: none;
+      padding: 0.5rem;
+      font-size: 1.125rem;
+      line-height: 1.5;
+      color: white;
+      &::placeholder {
+        color: #dee2e6;
+      }
+      // 버튼을 제외한 영역을 모두 차지하기
+      flex: 1;
+    }
+    button {
+      // 기본 스타일 초기화
+      background: none;
+      outline: none;
+      border: none;
+      background: #868e96;
+      color: white;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      transition: 0.1s background ease-in;
+      &:hover {
+        background: #adb5bd;
+      }
+    }
+  }
+  
+
+  .for_button{
+  display: flex;
+  // background:red;
+  input{
+      height: 25px;
+      margin-left: 0.3rem;
+      background: #22b8cf;
+      // border: red;
+      outline: black;
+      color: white;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      font-size: 1.0rem;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      justify-content: center;
+      // width: 10%;
+  }
+}
+
+.mov{
+  display: flex;
+  // background-color: white;
+  // margin-bottom: 70px;
+  // font-weight: 300;
+  padding: 150px;
+  // border-radius: 5px;
+  // color: #adaeb9;
+}
+

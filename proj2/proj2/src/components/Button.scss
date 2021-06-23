@@ -1,0 +1,19 @@
+.Button{
+    display: flex;
+    // background:red;
+.button{
+        margin-left: 0.3rem;
+        background: #22b8cf;
+        // border: red;
+        outline: black;
+        color: white;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        font-size: 1.0rem;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        justify-content: center;
+    }
+}
